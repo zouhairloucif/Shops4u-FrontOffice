@@ -1,0 +1,83 @@
+<div class="cart-page-container">
+  <div class="cart-page-header" style="text-align: center;">
+    <h1>Register</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <form>
+        <div class="col-md-6 col-sm-12 form-control-group">
+          <div class="form-group">
+            <label for="exampleInputNom">Nom</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputNom"
+              placeholder="Nom"
+            />
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 form-control-group">
+          <div class="form-group">
+            <label for="exampleInputPrenom">Prénom</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPrenom"
+              placeholder="Prénom"
+            />
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 form-control-group">
+          <div class="form-group">
+            <label for="exampleInputTelephone">Telephone</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputTelephone"
+              placeholder="Telephone"
+            />
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 form-control-group">
+          <div class="form-group">
+            <label for="exampleInputemail">E-mail</label>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputemail"
+              placeholder="E-mail"
+            />
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 form-control-group">
+          <div class="form-group">
+            <label for="exampleInputPassword">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 form-control-group">
+            <div class="form-group">
+              <label for="exampleInputPassword2">re-Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword2"
+                placeholder="re-Password"
+              />
+            </div>
+          </div>
+
+        <div class="col-md-6 col-sm-12 form-control-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          Déja membre? ? <a [routerLink]="['/login']">Login</a>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</div>

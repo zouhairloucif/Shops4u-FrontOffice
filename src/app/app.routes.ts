@@ -12,6 +12,10 @@ export const appRoutes=[
         loadChildren:'./pages/login/login.module#LoginModule'
     },
     {
+        path:'register',
+        loadChildren:'./pages/register/register.module#RegisterModule'
+    },
+    {
         path:'category',
         loadChildren:'./pages/category/category.module#CategoryModule'
     },

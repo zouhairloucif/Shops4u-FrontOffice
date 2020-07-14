@@ -3,17 +3,17 @@
  */
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import { loginRoutes } from './login.routes';
+import { registerRoutes } from './register.routes';
 import {SharedModule} from '../../shared/shared.module';
-import {LoginComponent} from './login.component';
+import {RegisterComponent} from './register.component';
 
 @NgModule({
     imports: [
         SharedModule,
-        RouterModule.forChild(loginRoutes)
+        RouterModule.forChild(registerRoutes)
     ],
     declarations: [
-        LoginComponent
+        RegisterComponent
     ]
 })
-export class LoginModule { }
+export class RegisterModule { }
