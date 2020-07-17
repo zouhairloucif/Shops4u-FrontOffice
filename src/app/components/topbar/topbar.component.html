@@ -1,0 +1,60 @@
+<div class="main-header navbar-fixed-top">
+    <div class="header-menu">
+        <div class="header-mobile-nav-wrapper">
+            <button type="button" class="navbar-toggle" (click)="collapse = !collapse">
+                <span class="fa fa-bars fa-2x"></span>
+            </button>
+        </div>
+        <div class="header-logo-wrapper">
+            <img class="header-logo-image img-responsive" src="./assets/imgs/logo.png" alt="Shops4U">
+        </div>
+        <div class="header-nav-wrapper">
+            <ul class="header-nav">
+                <li class="header-nav-item">
+                    <a routerLink="/">Accueil</a>
+                </li>
+                <li class="header-nav-item">
+                    <a routerLink="/cart">Products </a>
+                </li>
+                <li class="header-nav-item">
+                    <a routerLink="/">Categorie</a>
+                </li>
+                <li class="header-nav-item">
+                    <a routerLink="/">Contact </a>
+                </li>
+            </ul>
+        </div>
+        <div class="header-cart-wrapper">
+            <div class="header-login" *ngIf="!authenticated">
+                <a routerLink="/login">Se Connecter</a>
+            </div>
+            <div class="header-login" *ngIf="authenticated">
+                <a (click)="logout()" class="cursor-pointer"><span class="glyphicon glyphicon-off"></span></a>
+            </div>
+            <div class="header-cart" (click)="toggleCartPopup($event)">
+                <div class="mobil-shopping-cart">
+                    <span><span *ngIf="cart_num">({{cart_num}})</span></span>
+                </div>
+                <div class="header-cart-item">
+                    <a href="#">Panier<span *ngIf="cart_num">( {{cart_num}} )</span>
+                        <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class="mobile-header-nav" *ngIf="collapse" (click)="collapse = !collapse">
+        <li>
+            <a routerLink="/">HOME</a>
+        </li>
+        <li>
+            <a routerLink="/">SHOP</a>
+        </li>
+        <li>
+            <a routerLink="/">JOURNAL</a>
+        </li>
+        <li>
+            <a routerLink="/">MORE</a>
+        </li>
+    </ul>
+    <cart-popup></cart-popup>
+</div>

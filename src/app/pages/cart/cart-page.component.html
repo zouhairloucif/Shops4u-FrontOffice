@@ -23,7 +23,7 @@
             </div>
             <div class="cart-item-cell cart-item-total">
                 <div class="item-price">
-                    {{cart.quantity*cart.product.price | currency :'USD':true }}
+                    {{cart.quantity*cart.product.price | currency :'MAD':true }}
                 </div>
             </div>
             <div class="cart-item-cell cart-item-action">
@@ -43,7 +43,7 @@
                         subtotal
                     </div>
                     <div class="col-md-6 cart-total-value">
-                        {{totalPrice | currency :'USD':true}}
+                        {{totalPrice | currency :'MAD':true}}
                     </div>
                 </div>
                 <div class="cart-total-row row">
@@ -51,14 +51,14 @@
                         total
                     </div>
                     <div class="col-md-6 cart-total-value cart-total-price">
-                        {{totalPrice | currency :'USD':true}} AUD
+                        {{totalPrice | currency :'MAD':true}} AUD
                     </div>
                 </div>
             </div>
         </div>
         <div class="cart-buttons">
             <div class="continue-shopping"><a routerLink="/">continue shopping</a></div>
-            <div class="checkout-button button button-primary button-large">Checkout ({{totalPrice | currency :'USD':true}})</div>
+            <div class="checkout-button button button-primary button-large">Checkout ({{totalPrice | currency :'MAD':true}})</div>
         </div>
     </div>
     <div class="cart-page-content" *ngIf="cartList.length == 0">

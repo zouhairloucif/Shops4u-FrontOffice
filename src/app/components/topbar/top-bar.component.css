@@ -36,7 +36,7 @@
 
 .header-login{
     text-align: right !important;
-    width: 75% !important;
+    width: 65% !important;
     float: left !important;
 }
 .header-cart{
@@ -45,4 +45,11 @@
 .header-login a {
     color: #1d1d20;
     font-family: Roboto;
+}
+
+.header-logo-wrapper .header-logo-image{
+    max-height: 100px;
+}
+.cursor-pointer{
+    cursor: pointer;
 }

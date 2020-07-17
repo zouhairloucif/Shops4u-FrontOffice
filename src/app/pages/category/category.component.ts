@@ -31,6 +31,8 @@ export class CategoryComponent implements OnInit {
         this.cartService.addToCart({product,quantity:1})
     };
     ngOnDestroy() {
-        this.sub.unsubscribe();
+        if(typeof(this.sub) != 'undefined'){
+            this.sub.unsubscribe();
+        }
     }
 }

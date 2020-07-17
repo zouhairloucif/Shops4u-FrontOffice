@@ -1,6 +1,6 @@
-import { LoginComponent } from "./login.component";
+import { TopbarComponent } from "./topbar.component";
 
-export const loginRoutes = [
+export const topbarRoutes = [
     // {
     //     path: '',
     //     redirectTo: 'login',
@@ -8,6 +8,6 @@ export const loginRoutes = [
     // },
     {
         path: '',
-        component: LoginComponent
+        component: TopbarComponent
     },
 ];

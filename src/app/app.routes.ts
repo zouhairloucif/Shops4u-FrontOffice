@@ -1,30 +1,37 @@
-/**
- * Created by andrew.yang on 7/27/2017.
- */
-export const appRoutes=[
+export const appRoutes = [
     {
-        path:'',
-        redirectTo:'category',
-        pathMatch:'full'
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
     },
     {
-        path:'login',
-        loadChildren:'./pages/login/login.module#LoginModule'
+        path: 'login',
+        loadChildren: './pages/login/login.module#LoginModule'
     },
     {
-        path:'category',
-        loadChildren:'./pages/category/category.module#CategoryModule'
+        path: 'register',
+        loadChildren: './pages/register/register.module#RegisterModule'
     },
     {
-        path:'product',
-        loadChildren:'./pages/product/product.module#ProductModule'
+        path: 'logout',
+        loadChildren: './components/topbar/topbar.module#TopbarModule'
     },
     {
-        path:'cart',
-        loadChildren:'./pages/cart/cart-page.module#CartPageModule'
+        path: 'accueil',
+        loadChildren: './pages/accueil/accueil.module#AccueilModule'
     },
     {
-        path:'**',
-        loadChildren:'./pages/category/category.module#CategoryModule'
-    }
+        path: 'category',
+        loadChildren: './pages/category/category.module#CategoryModule'
+    },
+    {
+        path: 'product',
+        loadChildren: './pages/product/product.module#ProductModule'
+    },
+    {
+        path: 'cart',
+        loadChildren: './pages/cart/cart-page.module#CartPageModule'
+    },
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: '**', redirectTo: '/login' },
 ];

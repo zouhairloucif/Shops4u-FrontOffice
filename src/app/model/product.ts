@@ -1,7 +1,6 @@
-/**
- * Created by andrew.yang on 7/27/2017.
- */
+
 export class Product {
+    id: any;
     title: string;
     brand?: string;
     price?: number;

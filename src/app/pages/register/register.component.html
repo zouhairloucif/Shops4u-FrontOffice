@@ -1,0 +1,80 @@
+<div class="cart-page-container vcenter-flex">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="cart-page-header">
+        <h1 aria-describedby="emailHelp">Inscrivez-vous!</h1>
+      </div>
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+      <form #registerFormData="ngForm" (ngSubmit)="register(registerFormData)">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 form-control-group">
+            <div class="form-group text-left">
+              <label for="nom">Nom :</label>
+              <input type="text" required ngModel class="form-control" name="nom" id="nom" placeholder="Entrer votre Nom ici">
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 form-control-group">
+            <div class="form-group text-left">
+              <label for="prenom">Prenom :</label>
+              <input type="text" required ngModel class="form-control" name="prenom" id="prenom"
+                placeholder="Entrer votre Prenom ici">
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 form-control-group">
+            <div class="form-group text-left">
+              <label for="email">Email :</label>
+              <input type="email" required ngModel class="form-control" name="email" id="email"
+                placeholder="Entrer votre email ici">
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 form-control-group">
+            <div class="form-group text-left">
+              <label for="telephone">Téléphone :</label>
+              <input type="text" required ngModel class="form-control" name="telephone" id="telephone"
+                placeholder="Entrer votre Téléphone ici">
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 form-control-group">
+            <div class="form-group text-left">
+              <label for="pwd">Mot de passe :</label>
+              <input type="password" required ngModel class="form-control" name="password" id="password"
+                placeholder="Entrer votre mot de passe ici">
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 form-control-group">
+            <div class="form-group text-left">
+              <label for="repeatpwd">Répéter le mot de passe :</label>
+              <input type="password" required ngModel class="form-control" name="repeatpwd" id="repeatpwd"
+                placeholder="Confirmer votre mot de passe á nouveau">
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 form-control-group">
+            <div class="form-group text-left">
+              <input type="checkbox" id="terms" (checkedChange)="toggle($event);">
+              <label for="terms">Accepter les <a [routerLink]="['/terms']">Termes et Conditions</a></label>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 form-control-group">
+            <div class="form-group">
+              <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre e-mail avec quelqu'un
+                d'autre.</small>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary btn-lg">
+              Inscrivez-vous
+            </button>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group text-center">
+              Vous avez déjà un compte ? <a [routerLink]="['/login']">Se Connecter</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

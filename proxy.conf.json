@@ -1,6 +1,6 @@
 {
     "/api/front/*": {
-        "target": "http://localhost/Shops4U",
+        "target": "http://localhost:8080/Shops4U",
         "changeOrigin": true,
         "secure": false,
         "logLevel": "debug"

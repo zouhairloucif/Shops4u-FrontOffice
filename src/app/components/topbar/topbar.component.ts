@@ -1,87 +1,61 @@
-/**
- * Created by andrew.yang on 7/28/2017.
- */
+
 import { Component, OnInit } from '@angular/core';
-import {CartService} from "../../services/cart.service";
+import { CartService } from "../../services/cart.service";
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
-    selector: 'top-bar',
-    styleUrls: ['./top-bar.component.css'],
-    template: `    
-    <div class="main-header navbar-fixed-top">
-        <div class="header-menu">
-            <div class="header-mobile-nav-wrapper">
-                <button type="button" class="navbar-toggle" (click)="collapse = !collapse">
-                    <span class="fa fa-bars fa-2x"></span>
-                </button>
-            </div>
-            <div class="header-logo-wrapper">
-                <img class="header-logo-image" src="./assets/imgs/logo.png" alt="Hero">
-            </div>
-            <div class="header-nav-wrapper">
-                <ul class="header-nav">
-                    <li class="header-nav-item">
-                        <a routerLink="/">Accueil</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a routerLink="/cart">Products </a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a routerLink="/">Categorie</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a routerLink="/">Contact </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="header-cart-wrapper">
-                <div class="header-login">
-                    <a routerLink="/login">Login </a>
-                </div>
-                <div class="header-cart" (click)="toggleCartPopup($event)">
-                    <div class="mobil-shopping-cart">
-                        <span><i class="fa fa-shopping-cart fa-2x"></i> <span *ngIf="cart_num">( {{cart_num}} )</span></span>
-                    </div>
-                    <div class="header-cart-item">
-                        <a href="">MY CART <span *ngIf="cart_num">( {{cart_num}} )</span><span class="fa fa-caret-down"></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <ul class="mobile-header-nav" *ngIf="collapse" (click)="collapse = !collapse">
-            <li>
-                <a routerLink="/">HOME</a>
-            </li>
-            <li>
-                <a routerLink="/">SHOP</a>
-            </li>
-            <li>
-                <a routerLink="/">JOURNAL</a>
-            </li>
-            <li>
-                <a routerLink="/">MORE</a>
-            </li>
-        </ul>
-        <cart-popup></cart-popup>
-    </div>
-`
+  selector: 'top-bar',
+  styleUrls: ['./top-bar.component.css'],
+  templateUrl: './topbar.component.html',
+  providers: [AuthService]
 })
 export class TopbarComponent implements OnInit {
-    public collapse: boolean = false;
-    public cart_num:number;
-    constructor(
-        private cartService: CartService
-    ) { }
+  public collapse: boolean = false;
+  public cart_num: number;
+  public authenticated: boolean = false;
+  constructor(private cartService: CartService, private authService: AuthService, private router: Router) {
+    this.CheckLoggedIn();
+  }
 
-    ngOnInit() {
-        this.cartService.cartListSubject
-            .subscribe(res => {
-                this.cart_num = res.length;
-            })
+  ngOnInit() {
+    this.cartService.cartListSubject
+      .subscribe(res => {
+        this.cart_num = res.length;
+      })
+  }
+  toggleCartPopup = (event: any) => {
+    event.preventDefault();
+    event.stopPropagation();
+    this.cartService.toggleCart()
+  }
+
+  CheckLoggedIn(): void {
+    if (localStorage.getItem("currentUser")) {
+      let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      let currentUserRole = currentUser['role'][0];
+      if ("client" == currentUserRole) {
+        this.authenticated = true;
+      }
     }
-    toggleCartPopup = (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        this.cartService.toggleCart()
+  }
+
+  logout(): void {
+    if (localStorage.getItem("currentUser")) {
+      let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      let access_token = currentUser['access_token'];
+      this.authService.logout(access_token).subscribe(
+        (data: any) => {
+          localStorage.removeItem('currentUser');
+          this.router.navigate(['/login']);
+        },
+        (error: any) => {
+          localStorage.removeItem('currentUser');
+          console.log(error);
+        }
+      );
+    } else {
+      this.router.navigate(['/login']);
     }
+  }
 }

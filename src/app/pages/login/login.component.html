@@ -1,50 +1,37 @@
-<div class="cart-page-container">
-  <div class="cart-page-header">
-    <h1>Authentification</h1>
-  </div>
+<div class="cart-page-container vcenter-flex">
   <div class="row">
     <div class="col-md-12">
-      <form>
+      <div class="cart-page-header">
+        <h1>Authentification</h1>
+      </div>
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+      <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
         <div class="row">
-          <div class="col-md-6 col-sm-12 form-control-group">
+          <div class="col-md-12 form-control-group">
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-              />
-              <small id="emailHelp" class="form-text text-muted"
-                >We'll never share your email with anyone else.</small
-              >
+              <input type="email" name="email" ngModel class="form-control" id="exampleInputEmail1" placeholder="Enter email" />
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 form-control-group">
+          <div class="col-md-12 form-control-group">
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword1"
-                placeholder="Password"
-              />
+              <input type="password" name="password" ngModel class="form-control" id="exampleInputPassword1" placeholder="Password" />
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 form-control-group">
-            <div class="form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-              />
-              <label class="form-check-label" for="exampleCheck1"
-                >Check me out</label
-              >
+          <div class="col-md-12 form-control-group">
+            <div class="form-check text-left">
+              <a [routerLink]="['/register']" class="btn btn-link pull-right">Créer un compte</a>
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+              <label class="form-check-label" for="exampleCheck1">Rester connecter</label>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-control-group">
+            <button type="submit" class="btn btn-lg btn-block btn-primary margin-top-20">Se Connecter</button>
+          </div>
         </div>
       </form>
     </div>
